@@ -1,3 +1,4 @@
+# live_reload ♻ watch_files - find and watch files for changes, emmit signals
 watch_files() {
     CHSUM1=""
     while [[ true ]]; do
@@ -25,13 +26,15 @@ watch_files() {
     done
 }
 
+# live_reload ♻ watch_changes - trap watch_files as shell child proccess
 watch_changes() {
     watch_files &
     CHANGE_PID=$!
     trap "kill $CHANGE_PID >/dev/null 2>&1" $(seq 0 15)
 }
 
-live_reload() {
+# live_reload ♻  start_app - validate if live_reload is called for dev, to start watching changes
+start_app() {
     clear
     if [[ $1 == "dev" ]]; then
         watch_changes
@@ -41,6 +44,4 @@ live_reload() {
     fi
 }
 
-ENTRY="$@"
-
-live_reload $@
+start_app $@

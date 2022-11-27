@@ -1,6 +1,3 @@
-#!/usr/bin/node
-// ♻♻♻ IF YOU CHANGE THIS FILE, APP SHOULD RELOAD ♻♻♻
-
 // live_reload ♻ node - spawn to init child process and watch for file changes
 const { spawn } = require("child_process");
 const { watch, writeFileSync } = require("fs");
