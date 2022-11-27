@@ -1,24 +1,22 @@
+WATCH_DIR="./app"
+# WATCH_DIR="./app ./local/helper ./main.*"
+NODE_SIGNAL="local/signal/.node"
+BASH_SIGNAL="local/signal/.bash"
+
+source $PWD/local/helper/helper.sh
+
 # live_reload ♻ watch_files - find and watch files for changes, emmit signals
 watch_files() {
     CHSUM1=""
     while [[ true ]]; do
-        CHSUM2=$(find ./app -type f -exec md5sum {} \;)
+        CHSUM2=$(find $WATCH_DIR -type f -exec md5sum {} \;)
         if [[ $CHSUM1 != $CHSUM2 ]]; then
             if [ -n "$CHSUM1" ]; then
-                read NODE_STATUS <local/signal/.node
                 clear
                 DIFF=$(diff <(echo -e "$CHSUM1") <(echo -e "$CHSUM2"))
-                DISPLAY_TEXT=$(echo -e -n "$DIFF" | grep -o '>[^"]*' | cut -c 3-)
-                echo "-------------"
-                echo "Changed: $DISPLAY_TEXT"
-                echo "Reloading..."
-                echo "-------------"
-                if [[ $NODE_STATUS == "spawn" ]]; then
-                    echo '' >local/signal/.bash
-                fi
-                if [[ $NODE_STATUS == "error" ]]; then
-                    echo '' >local/signal/.node
-                fi
+                display_changes "$DIFF"
+                read NODE_STATUS <$NODE_SIGNAL
+                emit_signals $NODE_STATUS
             fi
             CHSUM1=$CHSUM2
         fi

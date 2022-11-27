@@ -9,7 +9,7 @@ const { listening } = msgs;
 const { appName, debugOnConsole, port } = config;
 
 // live_reload ♻ helpers - from local/helper
-const { liveReloadError, liveReloadSocket } = require("./local/helper/helper.js");
+const { logColor, liveReloadError, liveReloadSocket } = require("./local/helper/helper.js");
 
 // live_reload ♻ variables - to handle child proccess and args/parameters
 let liveReloadChild;
@@ -67,7 +67,7 @@ const liveReloadStart = () => {
   const http = require("http").Server(app);
   _io = require("socket.io")(http);
   _io.on("connection", liveReloadSocket);
-  http.listen(port, () => console.log(`${appName} ${listening} ${port}`));
+  http.listen(port, () => logColor("32", `${appName} ${listening} ${port}`));
 };
 
 // live_reload ♻ entry - handle first liveReload call to spwan or watch child process

@@ -23,11 +23,12 @@ const liveReloadError = (data) => {
 
 // live_reload ♻ socket - io connection and disconnection handler
 const liveReloadSocket = (socket) => {
-  console.debug(`${socket.id} ${conn} ${fromSocket}`);
-  socket.on("disconnect", () => console.debug(`${socket.id} ${disc} ${fromSocket}`));
+  logColor("33", `${socket.id} ${conn} ${fromSocket}`);
+  socket.on("disconnect", () => logColor("31", `${socket.id} ${disc} ${fromSocket}`));
 };
 
 module.exports = {
+  logColor,
   liveReloadError,
   liveReloadSocket,
 };
