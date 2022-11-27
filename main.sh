@@ -1,7 +1,7 @@
-WATCH_DIR="./app"
-# WATCH_DIR="./app ./local/helper ./main.*"
-NODE_SIGNAL="local/signal/.node"
-BASH_SIGNAL="local/signal/.bash"
+WATCH_DIR=$(grep -o '"watchDir": "[^"]*' main.json | grep -o '[^"]*$')
+SIGNAL_PATH=$(grep -o '"signalPath": "[^"]*' main.json | grep -o '[^"]*$')
+NODE_SIGNAL="$SIGNAL_PATH.node"
+BASH_SIGNAL="$SIGNAL_PATH.bash"
 
 source $PWD/local/helper/helper.sh
 
