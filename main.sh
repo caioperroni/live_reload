@@ -2,7 +2,7 @@
 watch_files() {
     CHSUM1=""
     while [[ true ]]; do
-        CHSUM2=$(find ./src -type f -exec md5sum {} \;)
+        CHSUM2=$(find ./app -type f -exec md5sum {} \;)
         if [[ $CHSUM1 != $CHSUM2 ]]; then
             if [ -n "$CHSUM1" ]; then
                 read NODE_STATUS <local/signal/.node

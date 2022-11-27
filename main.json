@@ -5,7 +5,7 @@
     "debugOnConsole": false
   },
   "paths": {
-    "mainPath": "./src/sample.js",
+    "mainPath": "./app/sample.js",
     "signalPath": "local/signal/",
     "debugPath": "local/debug/",
     "ioPath": "/socket.io/*"

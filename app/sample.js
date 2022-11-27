@@ -5,6 +5,6 @@
 
 const express = require("express");
 const app = express();
-app.use(express.static("src"));
+app.use(express.static("app"));
 module.exports = app;
 // module.exports = app;s
