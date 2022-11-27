@@ -5,7 +5,7 @@
 
 const reloadTimeout = 1000;
 
-const reloadListener = () => {
+const reloadListener = (socket) => {
   console.log(`Reloading in ${reloadTimeout}ms`);
   socket.disconnect();
   setTimeout(() => window.location.reload(), reloadTimeout);
@@ -14,7 +14,7 @@ const reloadListener = () => {
 const loadListener = () => {
   if (!io) return;
   const socket = io();
-  socket.on("reload", reloadListener);
+  socket.on("reload", () => reloadListener(socket));
 };
 
 window.addEventListener("load", loadListener);
