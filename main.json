@@ -24,11 +24,11 @@
     },
     "logs": {
       "msg": "  - Check the logs on",
-      "color": "31"
+      "color": "33"
     },
     "tip": {
       "msg": " - Fix and save file to reload or press CTRL+C to exit",
-      "color": "31"
+      "color": "32"
     }
   }
 }
