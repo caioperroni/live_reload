@@ -6,6 +6,6 @@
 const port = 3000;
 const express = require("express");
 const app = express();
-app.use(express.static("app_js"));
-app.listen(port, () => console.log(`Sample app is listening on port ${port}`));
+app.use(express.static("app_static"));
+app.listen(port, () => console.log(`Sample app_js is listening on port ${port}`));
 // aapp.listen(port, () => console.log(`Sample app is listening on port ${port}`));
