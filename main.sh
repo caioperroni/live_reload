@@ -36,10 +36,8 @@ start_app() {
     clear
     if [[ $1 == "dev" ]]; then
         watch_changes
-        node main.js $CHANGE_PID $@
-    else
-        node main.js $@
     fi
+    node main.js $@
 }
 
 start_app $@

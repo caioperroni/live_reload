@@ -35,16 +35,14 @@ const liveReloadBind = (child) => {
 
 // live_reload ♻ spawn - creates child process and call event binder
 const liveReloadSpawn = (arg) => {
-  liveReloadBashWatch();
-  writeFileSync(signalPath + ".node", "spawn");
+  if (arg === "dev") liveReloadBashWatch();
   const entry = `${watchDir}/${entryPath}`;
   const args = [].concat(preArgs, entry, postArgs);
   liveReloadChild = spawn(mainCmd, args, {
-    // stdio: [null, 1, debugOnConsole ? 2 : null],
     stdio: ["pipe", 1, debugOnConsole ? 2 : "pipe"],
     detached: true,
   });
-  liveReloadBind(liveReloadChild);
+  if (arg === "dev") liveReloadBind(liveReloadChild);
 };
 
 // live_reload ♻ fix - signal error to .node and watch for new changes after error
@@ -58,6 +56,7 @@ const liveReloadNodeWatch = () => liveReloadWatch(signalPath + ".node", () => li
 
 // live_reload ♻ bash watch - watch for new changes, emiting io event and exiting from child proccess
 const liveReloadBashWatch = () => {
+  writeFileSync(signalPath + ".node", "spawn");
   liveReloadWatch(signalPath + ".bash", () => {
     if (workerWatch) _io.emit("reload");
     liveReloadChild.exitCode = 0;
@@ -75,6 +74,6 @@ const liveReloadWatch = (path, callback) => {
 
 // live_reload ♻ entry - handle first liveReload call to spwan or watch child process
 liveReloadSpawn(liveReloadArg);
-if (workerWatch) liveReloadWorkerStart(workerOrigin);
+if (workerWatch && liveReloadArg === "dev") liveReloadWorkerStart(workerOrigin);
 process.on("exit", liveReloadKill);
 process.on("SIGINT", () => process.exit());
