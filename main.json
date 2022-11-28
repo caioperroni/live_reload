@@ -1,35 +1,17 @@
 {
-  "config": {
-    "appName": "Sample app",
-    "watchDir": "./app",
-    "port": 3000,
-    "debugOnConsole": false
+  "watchConfig": {
+    "mainCmd": "node",
+    "preArgs": [],
+    "watchDir": "./app_js",
+    "entryPath": "sample.js",
+    "postArgs": []
   },
-  "paths": {
-    "mainPath": "./app/sample.js",
-    "signalPath": "local/signal/",
-    "debugPath": "local/debug/",
-    "ioPath": "/socket.io/*"
+  "watchOptions": {
+    "debugOnConsole": false,
+    "signalPath": "local/signal/"
   },
-  "msgs": {
-    "listening": "listening on port",
-    "conn": "connected",
-    "disc": "disconnected",
-    "fromSocket": "from socket.io",
-    "dashes": "--------\n"
-  },
-  "errors": {
-    "title": {
-      "msg": "An ERROR occurred!",
-      "color": "31"
-    },
-    "logs": {
-      "msg": "  - Check the logs on",
-      "color": "33"
-    },
-    "tip": {
-      "msg": " - Fix and save file to reload or press CTRL+C to exit",
-      "color": "32"
-    }
+  "watchWorker": {
+    "workerWatch": true,
+    "workerOrigin": "http://localhost:3000"
   }
 }

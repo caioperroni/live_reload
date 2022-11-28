@@ -32,19 +32,19 @@ const liveReloadSocket = (socket) => {
 };
 
 // live_reload ♻ createSocket - io server creation
-const liveReloadCreateSocket = (http, watchHost) =>
+const liveReloadCreateSocket = (http, workerOrigin) =>
   ioServer(http, {
     cors: {
-      origin: watchHost,
+      origin: workerOrigin,
       ...ioCors,
     },
   });
 
 // live_reload ♻ start - require main app, handle io and start
-const liveReloadWorkerStart = (watchHost) => {
+const liveReloadWorkerStart = (workerOrigin) => {
   app.get(ioPath, (req, res) => res.sendStatus(200));
   const http = HttpServer(app);
-  _io = liveReloadCreateSocket(http, watchHost);
+  _io = liveReloadCreateSocket(http, workerOrigin);
   _io.on("connection", liveReloadSocket);
   http.listen(port, () => logColor("32", `${appName} ${listening} ${port}`));
 };
