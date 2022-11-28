@@ -7,7 +7,6 @@
     }
   },
   "paths": {
-    "signalPath": "local/signal/",
     "debugPath": "local/debug/",
     "ioPath": "/socket.io/*"
   },
