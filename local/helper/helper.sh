@@ -6,7 +6,7 @@ blue='\033[0;34;1m'
 magenta='\033[35;1m'
 cyan='\033[0;36;1m'
 clear='\033[0m'
-divider='♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻♻'
+divider='♻♻♻♻♻♻♻♻♻'
 
 # live_reload ♻ echo_color - log to prompt with color variables
 echo_color() {

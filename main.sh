@@ -1,5 +1,5 @@
 WATCH_DIR=$(grep -o '"watchDir": "[^"]*' main.json | grep -o '[^"]*$')
-SIGNAL_PATH=$(grep -o '"signalPath": "[^"]*' main.json | grep -o '[^"]*$')
+SIGNAL_PATH=$(grep -o '"signalPath": "[^"]*' local/helper/helper.json | grep -o '[^"]*$')
 NODE_SIGNAL="$SIGNAL_PATH.node"
 BASH_SIGNAL="$SIGNAL_PATH.bash"
 

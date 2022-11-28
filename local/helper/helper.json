@@ -1,0 +1,35 @@
+{
+  "config": {
+    "appName": "Watch worker",
+    "port": 9000,
+    "ioCors": {
+      "methods": ["GET", "POST"]
+    }
+  },
+  "paths": {
+    "signalPath": "local/signal/",
+    "debugPath": "local/debug/",
+    "ioPath": "/socket.io/*"
+  },
+  "msgs": {
+    "listening": "listening on port",
+    "conn": "connected",
+    "disc": "disconnected",
+    "fromSocket": "from socket.io",
+    "dashes": "--------\n"
+  },
+  "errors": {
+    "title": {
+      "msg": "An ERROR occurred!",
+      "color": "31"
+    },
+    "logs": {
+      "msg": "  - Check the logs on",
+      "color": "33"
+    },
+    "tip": {
+      "msg": " - Fix and save file to reload or press CTRL+C to exit",
+      "color": "32"
+    }
+  }
+}
