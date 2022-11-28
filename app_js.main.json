@@ -1,0 +1,17 @@
+{
+  "watchConfig": {
+    "mainCmd": "node",
+    "preArgs": [],
+    "watchDir": "./app_js",
+    "entryPath": "sample.js",
+    "postArgs": []
+  },
+  "watchOptions": {
+    "debugOnConsole": false,
+    "signalPath": "local/signal/"
+  },
+  "watchWorker": {
+    "workerWatch": true,
+    "workerOrigin": "http://localhost:3000"
+  }
+}
