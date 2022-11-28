@@ -2,8 +2,8 @@
   "watchConfig": {
     "mainCmd": "node",
     "preArgs": [],
-    "watchDir": "./app_js",
-    "entryPath": "sample.js",
+    "watchDir": "./app_js ./app_static",
+    "entryPath": "./app_js/sample.js",
     "postArgs": []
   },
   "watchOptions": {

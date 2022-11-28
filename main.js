@@ -7,7 +7,7 @@ const { liveReloadError, liveReloadWorkerStart } = require("./local/helper/helpe
 
 // live_reload ♻ constants - from main.json
 const { watchConfig, watchOptions, watchWorker } = require("./main.json");
-const { mainCmd, entryPath, preArgs, postArgs, watchDir } = watchConfig;
+const { mainCmd, entryPath, preArgs, postArgs } = watchConfig;
 const { debugOnConsole, signalPath } = watchOptions;
 const { workerWatch, workerOrigin } = watchWorker;
 
@@ -36,8 +36,7 @@ const liveReloadBind = (child) => {
 // live_reload ♻ spawn - creates child process and call event binder
 const liveReloadSpawn = (arg) => {
   if (arg === "dev") liveReloadBashWatch();
-  const entry = `${watchDir}/${entryPath}`;
-  const args = [].concat(preArgs, entry, postArgs);
+  const args = [].concat(preArgs, entryPath, postArgs);
   liveReloadChild = spawn(mainCmd, args, {
     stdio: ["pipe", 1, debugOnConsole ? 2 : "pipe"],
     detached: true,

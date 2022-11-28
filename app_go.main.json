@@ -1,11 +1,9 @@
 {
   "watchConfig": {
     "mainCmd": "go",
-    "preArgs": [
-      "run"
-    ],
-    "watchDir": "./app_go",
-    "entryPath": "sample.go",
+    "preArgs": ["run"],
+    "watchDir": "./app_go ./app_static",
+    "entryPath": "./app_go/sample.go",
     "postArgs": []
   },
   "watchOptions": {
