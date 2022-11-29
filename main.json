@@ -2,13 +2,13 @@
   "watchConfig": {
     "mainCmd": "node",
     "preArgs": [],
-    "watchDir": "./app_js ./app_static",
     "entryPath": "./app_js/sample.js",
     "postArgs": []
   },
   "watchOptions": {
     "debugOnConsole": false,
-    "signalPath": "local/signal/"
+    "signalPath": "local/signal/",
+    "watchDir": "./app_js ./app_static"
   },
   "watchWorker": {
     "workerWatch": true,
