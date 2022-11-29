@@ -1,0 +1,17 @@
+{
+  "watchConfig": {
+    "mainCmd": "go",
+    "preArgs": ["run"],
+    "entryPath": "./app_go/sample.go",
+    "postArgs": []
+  },
+  "watchOptions": {
+    "debugOnConsole": false,
+    "signalPath": "local/signal/",
+    "watchDir": "./app_go ./app_static"
+  },
+  "watchWorker": {
+    "workerWatch": true,
+    "workerOrigin": "http://localhost:3000"
+  }
+}

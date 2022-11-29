@@ -1,0 +1,15 @@
+{
+  "name": "live_reload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "bash main.sh"
+  },
+  "author": "perroni♻tech",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1"
+  }
+}
