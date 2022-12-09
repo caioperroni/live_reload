@@ -20,7 +20,7 @@ watch_files() {
             fi
             CHSUM1=$CHSUM2
         fi
-        sleep 1
+        sleep 2
     done
 }
 
