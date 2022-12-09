@@ -8,7 +8,7 @@
 
 For developers, live_reload is a workspace setup that helps by detecting file changes in some directory and automatically restarting applications. Using shell script, pure Node.js and socket.io (only for browsers, if needed), can be used with many languages and frameworks, such as Node.js and Golang. If adapted, mostly any application and language that runs on Linux can be used.
 
-Heavly inspired by [nodemon](https://github.com/remy/nodemon#nodemon), solves almost the same problems with, bringing also the chance to be used out of Node.js projects.
+Heavly inspired by [nodemon](https://github.com/remy/nodemon#nodemon), solves almost the same problems, bringing also the chance to be used out of Node.js projects.
 
 </p>
 
